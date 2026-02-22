@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Log In</title>
+</head>
+<body>
+  <% if (!locals.user) {%>
+     <h1>Please log in</h1>
+    <form action="/log-in" method="POST">
+      <label for="email">Email</label>
+      <input id="email" name="email" placeholder="email" type="emailt" />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+      <button type="submit">Log In</button>
+    </form>
+
+      <a href="/log-out">Log Out</a>
+   
+    
+  <% } else { %>
+    <h1>Welcome <%= user.email %> <%= user.id %></h1>
+    <a href="/message">Create Message</a>
+    <a href="/log-out">Log Out</a>
+  <%}%>
+
+</body>
+</html>
